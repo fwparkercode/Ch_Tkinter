@@ -11,4 +11,5 @@
 # - Add a Button widget which will trigger the answer.
 # - Add a Label widget to display the answer (set to a initial value of "Your Fortune Here" or "--" or similar)
 # - Get your random answer message from a list of at least 10 possible strings. (e.g. ["Yes", "No", "Most Likely", "Definitely", etc...])
-# - Add THREE or more other style modifications to make your app unique (font family, font size, color, padding, image, borders, justification, whatever you can find in tkinter library etc.)  Make a comment at the top or bottom of your code to tell me your 3 things you did. (Just to help me out in checking your assignment)
+# - Add THREE or more other style modifications to make your app unique (font family, font size, color, padding, image, borders, justification, whatever you can find in tkinter library etc.)
+# Make a comment at the top or bottom of your code to tell me your 3 things you did. (Just to help me out in checking your assignment)

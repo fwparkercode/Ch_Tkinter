@@ -1,10 +1,14 @@
 from tkinter import *
 from tkinter import font
-import urllib.request
+import urllib
 from bs4 import BeautifulSoup
 import matplotlib
+
 matplotlib.use('TkAgg')
+
 import matplotlib.pyplot as plt
+
+
 
 
 
@@ -16,11 +20,17 @@ class App():
         :param master: root for this App
         :param url: landing page for brooks baseball
         '''
+
+
         self.title = Label(text="Brooks Baseball PitchFX Data\nChoose a Game", bg="dark blue", fg="white").grid(column=0, row=0, columnspan=3)
         # select from lists
         self.url = url
         self.page = urllib.request.urlopen(url)
         self.soup = BeautifulSoup(self.page.read(), "html.parser")
+
+        # make a frame to contain selectors
+        self.group = LabelFrame(master, text="Select your game and pitcher", padx=5, pady=5, bg="light blue")
+        self.group.grid(column=0, row=1, columnspan=3, rowspan=5, sticky="w" + "e")
 
         self.month_list, self.month_numlist = self.get_list(url, "month")
         self.month_var = StringVar()
@@ -124,6 +134,7 @@ class App():
         return my_label_list, my_val_list
 
 
+
 class Ploty():
     '''
     object to manage the plot through matplotlib
@@ -211,6 +222,7 @@ def get_index(list, option_value):
 
 
 if __name__ == "__main__":
+
     url = "http://www.brooksbaseball.net/pfxVB/pfx.php"
     root = Tk()
     root.title("Brooks PitchFX")
