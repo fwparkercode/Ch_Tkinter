@@ -96,6 +96,7 @@ class App():
         self.soup = BeautifulSoup(self.page.read(), "html.parser")
         self.pitcher_list, self.pitcherid_list = self.get_list(self.url, "pitchSel")
         self.pitcher_var = StringVar()
+        print(self.pitcher_list)
         self.pitcher_var.set(self.pitcher_list[0])
         self.pitcher_drop = OptionMenu(master, self.pitcher_var, *self.pitcher_list).grid(column=0, row=6, columnspan=3)
         #self.submit_date_button.destroy()
@@ -158,20 +159,20 @@ class Ploty():
         print(self.data[0])
 
         # pull the x, y data
-        self.x_data = [float(x[-5].text.strip()) for x in self.data]
-        self.y_data = [float(x[-4].text.strip()) for x in self.data]
+        self.x_data = [float(x[-6].text.strip()) for x in self.data]
+        self.y_data = [float(x[-5].text.strip()) for x in self.data]
 
-        self.x_strike = [float(x[-5].text.strip()) for x in self.data if x[9].text.strip() == "S"]
-        self.y_strike = [float(x[-4].text.strip()) for x in self.data if x[9].text.strip() == "S"]
+        self.x_strike = [float(x[-6].text.strip()) for x in self.data if x[9].text.strip() == "S"]
+        self.y_strike = [float(x[-5].text.strip()) for x in self.data if x[9].text.strip() == "S"]
+        print(self.x_strike)
+        self.x_ball = [float(x[-6].text.strip()) for x in self.data if x[9].text.strip() == "B"]
+        self.y_ball = [float(x[-5].text.strip()) for x in self.data if x[9].text.strip() == "B"]
 
-        self.x_ball = [float(x[-5].text.strip()) for x in self.data if x[9].text.strip() == "B"]
-        self.y_ball = [float(x[-4].text.strip()) for x in self.data if x[9].text.strip() == "B"]
+        self.x_inplay = [float(x[-6].text.strip()) for x in self.data if x[9].text.strip() == "X"]
+        self.y_inplay = [float(x[-5].text.strip()) for x in self.data if x[9].text.strip() == "X"]
 
-        self.x_inplay = [float(x[-5].text.strip()) for x in self.data if x[9].text.strip() == "X"]
-        self.y_inplay = [float(x[-4].text.strip()) for x in self.data if x[9].text.strip() == "X"]
-
-        self.x = [float(x[-5].text.strip()) for x in self.data]
-        self.y = [float(x[-4].text.strip()) for x in self.data]
+        self.x = [float(x[-6].text.strip()) for x in self.data]
+        self.y = [float(x[-5].text.strip()) for x in self.data]
         self.type = [x[15].text.strip() for x in self.data]
 
         fig = plt.figure(figsize=(6, 6))

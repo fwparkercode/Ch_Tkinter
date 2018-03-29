@@ -7,7 +7,7 @@ from tkinter import font
 
 class App():
     def __init__(self, master):
-        button_color = "gray28"
+        button_color = "gray27"
         operator_color = "dark orange"
 
         self.current_string = StringVar()
